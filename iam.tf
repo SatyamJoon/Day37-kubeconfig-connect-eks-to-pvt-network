@@ -1,6 +1,6 @@
 # EKS cluster IAM role
 resource "aws_iam_role" "eks_cluster" {
-  name               = "${var.cluster_name}-cluster-role21"
+  name               = "${var.cluster_name}-cluster-role"
   assume_role_policy = data.aws_iam_policy_document.eks_assume_role.json
   tags               = { Name = "${var.cluster_name}-cluster-role" }
 }
@@ -27,7 +27,7 @@ resource "aws_iam_role_policy_attachment" "eks_cluster_AmazonEKSServicePolicy" {
 
 # Node group IAM role
 resource "aws_iam_role" "node_group" {
-  name               = "${var.cluster_name}-node-role21"
+  name               = "${var.cluster_name}-node-role"
   assume_role_policy = data.aws_iam_policy_document.node_assume_role.json
   tags               = { Name = "${var.cluster_name}-node-role" }
 }
